@@ -27,7 +27,7 @@ export default function App() {
       <Button
         color="green"
         title="Click Me"
-        onPress={() => console.log("Button Clicked")}
+        onPress={() => alert("Button Clicked")}
       />
 
       <TouchableWithoutFeedback onPress={() => console.log("Image Clicked")}>
