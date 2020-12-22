@@ -6,6 +6,8 @@ import { StyleSheet, Text, View } from 'react-native';
 // View - map to UI View or an Android View
 export default function App() {
 
+  console.log("App executed");
+
   return (
     <View style={styles.container}>
       <Text>Hello React Native</Text>
