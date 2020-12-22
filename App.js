@@ -8,6 +8,8 @@ import {
   Image,
   SafeAreaView,
   Alert,
+  Platform,
+  StatusBar,
   Button,
 } from "react-native";
 
@@ -30,8 +32,8 @@ export default function App() {
         title="Click Me"
         onPress={() =>
           Alert.alert("My title", "My message", [
-            { text: "Yes" },
-            { text: "No" },
+            { text: "Yes", onPress: () => console.log("Yes") },
+            { text: "No", onPress: () => console.log("No") },
           ])
         }
       />
@@ -51,12 +53,16 @@ export default function App() {
   );
 }
 
+const containerStyle = { backgroundColor: "#fff" };
+
+// Regular javascrips properties
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
 
