@@ -6,12 +6,13 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 // View - map to UI View or an Android View
 export default function App() {
 
-  let x = 1;
-  console.log("App executed");
+  // to handle the lengthy text
+  const pressHandle = () => console.log("Text is Pressed!")
+
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello React Native</Text>
+      <Text numberOfLines={1} onPress={pressHandle}>Hello React Native</Text>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
