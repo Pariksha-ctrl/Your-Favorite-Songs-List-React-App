@@ -1,49 +1,51 @@
 // import { StatusBar } from 'expo-sta/tus-bar';
 import React from "react";
 import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
   View,
-  Image,
-  SafeAreaView,
-  Alert,
-  Platform,
-  StatusBar,
-  Button,
+  // Dimensions,
+  // StyleSheet,
+  // Text,
+  // TouchableWithoutFeedback,
+  // View,
+  // Image,
+  // SafeAreaView,
+  // Alert,
+  // Platform,
+  // StatusBar,
+  // Button,
 } from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
+// import {
+//   useDimensions,
+//   useDeviceOrientation,
+// } from "@react-native-community/hooks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 // View - map to UI View or an Android View
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: "#fff",
-          flex: 1, // it helps to take all the availavle space
-        }}
-      ></View>
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
 
-const containerStyle = { backgroundColor: "#fff" };
+// <SafeAreaView style={styles.container}>
+//   <View
+//     style={{
+//       backgroundColor: "#fff",
+//       flex: 1, // it helps to take all the availavle space
+//     }}
+//   ></View>
+// </SafeAreaView>
 
-// Regular javascrips properties
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-});
+// const containerStyle = { backgroundColor: "#fff" };
+
+// // Regular javascrips properties
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+//     // alignItems: "center",
+//     // justifyContent: "center",
+//   },
+// });
 
 // ---------THEESE ARE ALL COMMENTS------
 
