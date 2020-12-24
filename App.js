@@ -37,6 +37,7 @@ export default function App() {
         style={{
           backgroundColor: "#fff",
           flex: 1, // it helps to take all the availavle space
+          flexDirection: "row",
           // width: "100%",
           // height: portrait ? "30%" : "100%",
         }}
@@ -44,19 +45,22 @@ export default function App() {
         <View
           style={{
             backgroundColor: "dodgerblue",
-            flex: 2,
+            width: 100,
+            height: 100,
           }}
         />
         <View
           style={{
             backgroundColor: "gold",
-            flex: 1,
+            width: 100,
+            height: 100,
           }}
         />
         <View
           style={{
             backgroundColor: "tomato",
-            flex: 1,
+            width: 100,
+            height: 100,
           }}
         />
       </View>
