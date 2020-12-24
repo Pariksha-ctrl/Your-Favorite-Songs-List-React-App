@@ -7,8 +7,10 @@ function WelcomeScreen(props) {
       style={styles.background}
       source={require("../assets/background.jpg")}
     >
-      <Image style={styles.logo} source={require("../assets/red-logo.png")} />
-      <Text>Listen to your favorite songs!</Text>
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require("../assets/red-logo.png")} />
+        <Text>Listen to your favorite songs!</Text>
+      </View>
       <View style={styles.loginButton}></View>
       <View style={styles.registerButton}></View>
     </ImageBackground>
@@ -22,6 +24,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
+  logo: {
+    width: 100,
+    height: 100,
+  },
+  logoContainer: {
+    position: "absolute",
+    top: 70,
+    alignItems: "center",
+  },
   loginButton: {
     width: "100%",
     height: 70,
@@ -31,12 +42,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 70,
     backgroundColor: "#4ecdc4",
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    position: "absolute",
-    top: 70,
   },
 });
 

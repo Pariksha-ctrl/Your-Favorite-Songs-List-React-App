@@ -14,6 +14,7 @@ import {
   // StatusBar,
   // Button,
 } from "react-native";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 // import {
 //   useDimensions,
 //   useDeviceOrientation,
@@ -22,7 +23,8 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 // View - map to UI View or an Android View
 export default function App() {
-  return <WelcomeScreen />;
+  //return <WelcomeScreen />;
+  return <ViewImageScreen />;
 }
 
 // <SafeAreaView style={styles.container}>
