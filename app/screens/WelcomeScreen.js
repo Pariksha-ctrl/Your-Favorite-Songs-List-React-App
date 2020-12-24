@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, View } from "react-native";
 
 function WelcomeScreen(props) {
   return (
@@ -7,6 +7,7 @@ function WelcomeScreen(props) {
       style={styles.background}
       source={require("../assets/background.jpg")}
     >
+      <Image style={styles.logo} source={require("../assets/red-logo.png")} />
       <View style={styles.loginButton}></View>
       <View style={styles.registerButton}></View>
     </ImageBackground>
@@ -18,6 +19,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1, // image background will take the entire screen.
     justifyContent: "flex-end",
+    alignItems: "center",
   },
   loginButton: {
     width: "100%",
@@ -28,6 +30,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 70,
     backgroundColor: "#4ecdc4",
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    position: "absolute",
+    top: 70,
   },
 });
 
