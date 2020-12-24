@@ -13,6 +13,11 @@ function WelcomeScreen(props) {
       </View>
       <View style={styles.loginButton}></View>
       <View style={styles.registerButton}></View>
+
+      <registerButton
+        title="Register Here!"
+        onPress={() => this.props.navigation.navigate("RegisterScreen")}
+      />
     </ImageBackground>
   );
 }

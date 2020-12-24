@@ -23,8 +23,8 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 // View - map to UI View or an Android View
 export default function App() {
-  //return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  return <WelcomeScreen />;
+  // return <ViewImageScreen />;
 }
 
 // <SafeAreaView style={styles.container}>
