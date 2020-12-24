@@ -1,10 +1,11 @@
+// Importing Libraries
 // import { StatusBar } from 'expo-sta/tus-bar';
 import React from "react";
 import {
   View,
   // Dimensions,
   // StyleSheet,
-  // Text,
+  Text,
   // TouchableWithoutFeedback,
   // View,
   // Image,
@@ -12,20 +13,35 @@ import {
   // Alert,
   // Platform,
   // StatusBar,
-  // Button,
+  Button,
 } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
+// Importing Components
+import WelcomeScreen from "./screens/WelcomeScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 // import {
 //   useDimensions,
 //   useDeviceOrientation,
 // } from "@react-native-community/hooks";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
+
+// creating the stacks of the route
+const Navigator = createStackNavigator({
+  WelcomeScreen: { screen: WelcomeScreen },
+  RegisterScreen: { screen: RegisterScreen },
+});
+
+const App = createAppContainer(Navigator);
+
+export default App;
 
 // View - map to UI View or an Android View
-export default function App() {
-  return <WelcomeScreen />;
-  // return <ViewImageScreen />;
-}
+// export default function App() {
+//   return <WelcomeScreen />;
+// return <ViewImageScreen />;
+// }
 
 // <SafeAreaView style={styles.container}>
 //   <View

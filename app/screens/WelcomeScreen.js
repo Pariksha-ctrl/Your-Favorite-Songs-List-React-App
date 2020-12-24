@@ -1,26 +1,41 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
-function WelcomeScreen(props) {
-  return (
-    <ImageBackground
-      style={styles.background}
-      source={require("../assets/background.jpg")}
-    >
-      <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../assets/red-logo.png")} />
-        <Text>Listen to your favorite songs!</Text>
-      </View>
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+export default class WelcomeScreen extends React.Component {
+  static navigationOptions = {
+    title: "Welcome Screen",
+  };
 
-      <registerButton
-        title="Register Here!"
-        onPress={() => this.props.navigation.navigate("RegisterScreen")}
-      />
-    </ImageBackground>
-  );
+  render() {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <ImageBackground
+        style={styles.background}
+        source={require("../assets/background.jpg")}
+      >
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/red-logo.png")}
+          />
+          <Text>Listen to your favorite songs!</Text>
+        </View>
+        <View style={styles.loginButton}></View>
+        <View style={styles.registerButton}></View>
+
+        <registerButton
+          title="Register Here!"
+          onPress={() => navigate("RegisterScreen", { name: "Pariksha" })}
+        />
+      </ImageBackground>
+    );
+
+    //return "WelcomeScreen";
+  }
 }
+
+function WelcomeScreen(props) {}
 
 // shortcut react-native stylesheet
 const styles = StyleSheet.create({
