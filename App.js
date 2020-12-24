@@ -37,17 +37,18 @@ export default function App() {
         style={{
           backgroundColor: "#fff",
           flex: 1, // it helps to take all the availavle space
-          flexDirection: "row",
-          justifyContent: "center", //aligning content on the center
-          alignItems: "center",
-          alignSelf: "center",
-          flexWrap: "wrap",
+          // flexDirection: "row",
+          // justifyContent: "center", //aligning content on the center
+          // alignItems: "center",
+          // alignSelf: "center",
+          // flexWrap: "wrap",
 
           // width: "100%",
           // height: portrait ? "30%" : "100%",
         }}
       >
-        <View
+        {/* VIEW */}
+        {/* <View
           style={{
             backgroundColor: "dodgerblue",
             //width: 100,
@@ -62,6 +63,8 @@ export default function App() {
             backgroundColor: "gold",
             width: 100,
             height: 100,
+            top: 20, // moving 20 pixel from the top
+            position: "absolute", // poistioned relative to parent position
           }}
         />
         <View
@@ -84,7 +87,7 @@ export default function App() {
             width: 100,
             height: 100,
           }}
-        />
+        /> */}
       </View>
 
       {/* TEXT */}
