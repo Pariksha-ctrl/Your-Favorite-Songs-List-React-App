@@ -40,6 +40,9 @@ export default function App() {
           flexDirection: "row",
           justifyContent: "center", //aligning content on the center
           alignItems: "center",
+          alignSelf: "center",
+          flexWrap: "wrap",
+
           // width: "100%",
           // height: portrait ? "30%" : "100%",
         }}
@@ -47,9 +50,11 @@ export default function App() {
         <View
           style={{
             backgroundColor: "dodgerblue",
-            width: 100,
-            height: 300,
-            alignSelf: "flex-start", // for individual item
+            //width: 100,
+            height: 100,
+            flexBasis: 100,
+            flexGrow: 1,
+            //alignSelf: "flex-start", // for individual item
           }}
         />
         <View
@@ -62,6 +67,20 @@ export default function App() {
         <View
           style={{
             backgroundColor: "tomato",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "grey",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "greenyellow",
             width: 100,
             height: 100,
           }}
