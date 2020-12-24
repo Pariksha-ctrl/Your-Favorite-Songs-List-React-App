@@ -38,6 +38,8 @@ export default function App() {
           backgroundColor: "#fff",
           flex: 1, // it helps to take all the availavle space
           flexDirection: "row",
+          justifyContent: "center", //aligning content on the center
+          alignItems: "center",
           // width: "100%",
           // height: portrait ? "30%" : "100%",
         }}
@@ -46,7 +48,8 @@ export default function App() {
           style={{
             backgroundColor: "dodgerblue",
             width: 100,
-            height: 100,
+            height: 300,
+            alignSelf: "flex-start", // for individual item
           }}
         />
         <View
