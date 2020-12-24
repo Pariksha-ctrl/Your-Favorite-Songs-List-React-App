@@ -23,7 +23,7 @@ export default function App() {
   //console.log(Dimensions.get("screen"));
   //console.log(useDimensions());
   // choosing the orientation of the screen
-  const { portrait } = useDeviceOrientation();
+  //const { portrait } = useDeviceOrientation();
 
   // to handle the lengthy text
   const handlePress = () => console.log("Text is Pressed!");
@@ -35,17 +35,40 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View
         style={{
-          backgroundColor: "dodgerblue",
-          width: "100%",
-          height: portrait ? "30%" : "100%",
+          backgroundColor: "#fff",
+          flex: 1, // it helps to take all the availavle space
+          // width: "100%",
+          // height: portrait ? "30%" : "100%",
         }}
-      ></View>
+      >
+        <View
+          style={{
+            backgroundColor: "dodgerblue",
+            flex: 2,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "gold",
+            flex: 1,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "tomato",
+            flex: 1,
+          }}
+        />
+      </View>
 
+      {/* TEXT */}
+      {/* 
       <Text numberOfLines={1} onPress={handlePress}>
         Hello React Native App!
-      </Text>
+      </Text> */}
 
-      <Button
+      {/* BUTTON */}
+      {/* <Button
         color="green"
         title="Click Me"
         onPress={() =>
@@ -54,9 +77,11 @@ export default function App() {
             { text: "No", onPress: () => console.log("No") },
           ])
         }
-      />
+      /> */}
+      {/* 
+      IMAGE */}
 
-      <TouchableWithoutFeedback onPress={() => console.log("Image Clicked")}>
+      {/* <TouchableWithoutFeedback onPress={() => console.log("Image Clicked")}>
         <Image
           blurRadius={2}
           fadeDuration={1000}
@@ -66,7 +91,7 @@ export default function App() {
             uri: "https://picsum.photos/200/300",
           }}
         />
-      </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback> */}
     </SafeAreaView>
   );
 }
