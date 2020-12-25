@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, Button, View, Image, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Button,
+  View,
+  Image,
+  ImageBackground,
+  ImageStyle,
+  Text,
+} from "react-native";
 
 export default class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -10,22 +18,25 @@ export default class WelcomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <ImageBackground>
+      <ImageBackground
         style={styles.background}
         source={require("../assets/background.jpg")}
-        <View style={styles.container}>
-          <View style={styles.logoContainer}>
-            <Image
-              style={styles.logo}
-              source={require("../assets/red-logo.png")}
-            />
-            <Text>Listen to your favorite songs!</Text>
-          </View>
-          <RegisterButton
+      >
+        {/* <View style={styles.container}> */}
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/red-logo.png")}
+          />
+          <Text>Listen to your favorite songs!</Text>
+        </View>
+        <View style={styles.registerButton}>
+          <Button
             title="REGISTER"
             onPress={() => navigate("RegisterScreen", { name: "Pariksha" })}
           />
         </View>
+        {/* </View> */}
       </ImageBackground>
     );
   }
@@ -33,11 +44,6 @@ export default class WelcomeScreen extends React.Component {
 
 // shortcut react-native stylesheet
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, // image background will take the entire screen.
-    alignItems: "center",
-    justifyContent: "center",
-  },
   background: {
     flex: 1,
     justifyContent: "flex-end",
@@ -48,7 +54,7 @@ const styles = StyleSheet.create({
     top: 70,
     alignItems: "center",
   },
-  RegisterButton: {
+  registerButton: {
     width: "100%",
     height: 70,
     backgroundColor: "#4ecdc4",
