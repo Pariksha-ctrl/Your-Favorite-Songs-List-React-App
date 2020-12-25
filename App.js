@@ -27,12 +27,37 @@ const listTab = [
   },
 ];
 
-
+const data = [
+  {
+    name: "Last Christmas",
+    status: "All",
+  },
+  {
+    name: "Back to December",
+    status: "All",
+  },
+  {
+    name: "All of me",
+    status: "Favorite Songs",
+  },
+  {
+    name: "Because of you",
+    status: "Unliked Songs",
+  },
+  {
+    name: "Perfect",
+    status: "All",
+  },
+];
 
 const App = () => {
   const [status, setStatus] = useState("All");
   const setStausFilter = (status) => {
     setStatus(status);
+  };
+
+  const renderItem = ({ item, index }) => {
+    return <View></View>;
   };
 
   return (
@@ -65,8 +90,11 @@ const App = () => {
         <Button title="Register Here!" onPress={() => navigate("MainScreen")} />
       </View>
       {/* </ImageBackground> */}
-      <FlatList data={data} keyExtractor={(e, i) => i.toString()} 
-      renderItem={renderItem}/>
+      <FlatList
+        data={data}
+        keyExtractor={(e, i) => i.toString()}
+        renderItem={renderItem}
+      />
     </SafeAreaView>
   );
 };
