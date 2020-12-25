@@ -12,6 +12,18 @@ import {
 } from "react-native";
 import {} from "react-navigation";
 
+const listTab = [
+  {
+    status: "All",
+  },
+  {
+    status: "Favorite Songs",
+  },
+  {
+    status: "Unliked Songs",
+  },
+];
+
 // Register Screen
 export default class MainScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -26,9 +38,11 @@ export default class MainScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.listTab}>
-          <TouchableOpacity style={styles.buttonTab}>
-            <Text style={styles.textTab}>All Songs</Text>
-          </TouchableOpacity>
+          {listTab.map((e) => (
+            <TouchableOpacity style={styles.buttonTab}>
+              <Text style={styles.textTab}>{e.status}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
         <Text>Hello {state.params.name}</Text>
 
@@ -45,9 +59,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   listTab: {
-    flex: 1,
-    backgroundColor: "#fff",
-    padding: 15,
+    flexDirection: "row",
+    alignSelf: "center",
+    marginBottom: 20,
   },
   buttonTab: {
     width: Dimensions.get("window").width / 3.5,
@@ -59,7 +73,10 @@ const styles = StyleSheet.create({
   },
   textTab: {
     fontSize: 15,
-  }
+  },
+  buttonTabActive: {
+    backgroundColor: "#E683BD",
+  },
 });
 
 // // Register Screen
