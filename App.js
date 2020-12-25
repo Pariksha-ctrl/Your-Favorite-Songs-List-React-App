@@ -20,33 +20,33 @@ const listTab = [
     status: "All",
   },
   {
-    status: "Favorite Songs",
+    status: "Favorite",
   },
   {
-    status: "Unliked Songs",
+    status: "Unliked",
   },
 ];
 
 const data = [
   {
     name: "Last Christmas",
-    status: "Favorite Songs",
+    status: "Favorite",
   },
   {
     name: "Back to December",
-    status: "Unliked Songs",
+    status: "Unliked",
   },
   {
     name: "All of me",
-    status: "Favorite Songs",
+    status: "Favorite",
   },
   {
     name: "Because of you",
-    status: "Unliked Songs",
+    status: "Unliked",
   },
   {
     name: "Perfect",
-    status: "Favorite Songs",
+    status: "Favorite",
   },
 ];
 
@@ -73,7 +73,15 @@ const App = () => {
           <Text style={styles.songName}>{song.name}</Text>
         </View>
 
-        <View style={styles.songStatus}>
+        <View
+          style={[
+            styles.songStatus,
+            {
+              backgroundColor:
+                song.status === "Favorite" ? "#e5848e" : "#69c080",
+            },
+          ]}
+        >
           <Text>{song.status}</Text>
         </View>
       </View>
