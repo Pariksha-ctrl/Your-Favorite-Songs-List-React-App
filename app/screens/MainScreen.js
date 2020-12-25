@@ -1,5 +1,15 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Dimensions,
+  FlatList,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import {} from "react-navigation";
 
 // Register Screen
@@ -14,14 +24,16 @@ export default class MainScreen extends React.Component {
     const { navigate, state } = this.props.navigation;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.listTab}>
+          <TouchableOpacity style={styles.buttonTab}>
+            <Text>All Songs</Text>
+          </TouchableOpacity>
+        </View>
         <Text>Hello {state.params.name}</Text>
 
-        <Button
-          title="Set Selected Categories"
-          //   onPress={() => navigate("MainScreen")}
-        />
-      </View>
+        <Button title="Set Selected Categories" />
+      </SafeAreaView>
     );
   }
 }
@@ -29,7 +41,20 @@ export default class MainScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    paddingHorizontal: 10,
+    justifyContent: "center",
+  },
+  listTab: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: 15,
+  },
+  buttonTab: {
+    width: Dimensions.get("window").width / 3.5,
+    flexDirection: "row",
+    borderWidth: 0.5,
+    borderColor: "#EBEBEB",
+    padding: 10,
     justifyContent: "center",
   },
 });
