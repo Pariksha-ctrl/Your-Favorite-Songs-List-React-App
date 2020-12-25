@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Button, View, ImageBackground } from "react-native";
+import { StyleSheet, Button, View, Image, ImageBackground } from "react-native";
 
 export default class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -14,8 +14,15 @@ export default class WelcomeScreen extends React.Component {
         style={styles.background}
         source={require("../assets/background.jpg")}
         <View style={styles.container}>
-          <Button
-            title="Go to Register Screen"
+          <View style={styles.logoContainer}>
+            <Image
+              style={styles.logo}
+              source={require("../assets/red-logo.png")}
+            />
+            <Text>Listen to your favorite songs!</Text>
+          </View>
+          <RegisterButton
+            title="REGISTER"
             onPress={() => navigate("RegisterScreen", { name: "Pariksha" })}
           />
         </View>
@@ -35,6 +42,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
+  },
+  logoContainer: {
+    position: "absolute",
+    top: 70,
+    alignItems: "center",
+  },
+  RegisterButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "#4ecdc4",
   },
 });
 
