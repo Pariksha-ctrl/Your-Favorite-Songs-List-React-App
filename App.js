@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
     borderColor: "#EBEBEB",
     padding: 10,
     justifyContent: "center",
+    top: 40,
   },
   textTab: {
     fontSize: 15,
