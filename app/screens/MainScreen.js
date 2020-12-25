@@ -22,7 +22,7 @@ export default class MainScreen extends React.Component {
 
         <Button
           title="Go Back to Register Page"
-          onPress={() => navigate("RegisterScreen")}
+          //onPress={() => navigate("RegisterScreen")}
         />
       </View>
     );
