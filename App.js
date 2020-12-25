@@ -53,8 +53,15 @@ const data = [
 const App = () => {
   const [status, setStatus] = useState("All");
   const [datalist, setDataList] = useState(data);
-  
+
   const setStausFilter = (status) => {
+    if (status !== "All") {
+      // i.e if the song is other than all which is either purple or green in color
+      setDataList([...data.filter((e) => e.status === status)])}
+      else{
+        setDataList(data)
+      }
+    }
     setStatus(status);
   };
 
