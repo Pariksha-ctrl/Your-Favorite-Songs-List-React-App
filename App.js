@@ -10,6 +10,7 @@ import {
   Image,
   SafeAreaView,
   TouchableOpacity,
+  ListItem,
 } from "react-native";
 import {} from "react-navigation";
 // import BackgroundImage from "./assets/backgroundImage.jpg";
@@ -57,10 +58,9 @@ const App = () => {
   const setStausFilter = (status) => {
     if (status !== "All") {
       // i.e if the song is other than all which is either purple or green in color
-      setDataList([...data.filter((e) => e.status === status)])}
-      else{
-        setDataList(data)
-      }
+      setDataList([...data.filter((e) => e.status === status)]);
+    } else {
+      setDataList(data);
     }
     setStatus(status);
   };
@@ -99,11 +99,6 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ImageBackground style={styles.background} source={BackgroundImage}> */}
-      {/* <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={LogoImage} />
-          <Text>Listen to your favorite songs!</Text>
-        </View> */}
       <View style={styles.listTab}>
         {listTab.map((e) => (
           <TouchableOpacity
@@ -123,19 +118,15 @@ const App = () => {
           </TouchableOpacity>
         ))}
       </View>
-      {/* <View style={styles.registerButton}>
-        <Button title="Register Here!" onPress={() => navigate("MainScreen")} />
-      </View> */}
-      {/* </ImageBackground> */}
+
       <FlatList
-        data={data}
+        data={datalist}
         keyExtractor={(e, i) => i.toString()}
         renderSong={renderSong}
       />
     </SafeAreaView>
   );
 };
-
 export default App;
 
 // shortcut react-native stylesheet
