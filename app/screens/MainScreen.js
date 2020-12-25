@@ -27,7 +27,7 @@ export default class MainScreen extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.listTab}>
           <TouchableOpacity style={styles.buttonTab}>
-            <Text>All Songs</Text>
+            <Text style={styles.textTab}>All Songs</Text>
           </TouchableOpacity>
         </View>
         <Text>Hello {state.params.name}</Text>
@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
   },
+  textTab: {
+    fontSize: 15,
+  }
 });
 
 // // Register Screen
