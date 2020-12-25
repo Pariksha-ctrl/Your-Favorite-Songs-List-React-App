@@ -1,23 +1,132 @@
-// Importing Libraries
-// import { StatusBar } from 'expo-sta/tus-bar';
-import React from "react";
-import { View, Text, Button } from "react-native";
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Dimensions,
+  FlatList,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import {} from "react-navigation";
+// import BackgroundImage from "./assets/backgroundImage.jpg";
+// import LogoImage from "./assets/red-logo.png";
 
-// Importing Components
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import MainScreen from "./app/screens/MainScreen";
+const listTab = [
+  {
+    status: "All",
+  },
+  {
+    status: "Favorite Songs",
+  },
+  {
+    status: "Unliked Songs",
+  },
+];
 
-// creating the stacks of the route
-const Navigator = createStackNavigator({
-  WelcomeScreen: { screen: WelcomeScreen },
-  MainScreen: { screen: MainScreen },
-});
+const App = () => {
+  const [status, setStatus] = useState("All");
+  const setStausFilter = (status) => {
+    setStatus(status);
+  };
 
-const App = createAppContainer(Navigator);
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* <ImageBackground style={styles.background} source={BackgroundImage}> */}
+      {/* <View style={styles.logoContainer}>
+          <Image style={styles.logo} source={LogoImage} />
+          <Text>Listen to your favorite songs!</Text>
+        </View> */}
+      <View style={styles.listTab}>
+        {listTab.map((e) => (
+          <TouchableOpacity
+            style={[
+              styles.buttonTab,
+              status === e.status && styles.buttonTabActive,
+            ]}
+            onPress={() => setStausFilter(e.status)}
+          >
+            <Text style={styles.textTab}>{e.status}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.registerButton}>
+        <Button title="Register Here!" onPress={() => navigate("MainScreen")} />
+      </View>
+      {/* </ImageBackground> */}
+    </SafeAreaView>
+  );
+};
 
 export default App;
+
+// shortcut react-native stylesheet
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 10,
+    justifyContent: "center",
+  },
+  background: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  logoContainer: {
+    position: "absolute",
+    top: 20,
+    alignItems: "center",
+  },
+  registerButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "#4ecdc4",
+  },
+  listTab: {
+    flexDirection: "row",
+    alignSelf: "center",
+    marginBottom: 20,
+  },
+  buttonTab: {
+    width: Dimensions.get("window").width / 3.5,
+    flexDirection: "row",
+    borderWidth: 0.5,
+    borderColor: "#EBEBEB",
+    padding: 10,
+    justifyContent: "center",
+  },
+  textTab: {
+    fontSize: 15,
+  },
+  buttonTabActive: {
+    backgroundColor: "#E683BD",
+  },
+});
+
+// BACKUPS
+
+// Importing Libraries
+// import { StatusBar } from 'expo-sta/tus-bar';
+// import React from "react";
+// import { View, Text, Button } from "react-native";
+// import { createAppContainer } from "react-navigation";
+// import { createStackNavigator } from "react-navigation-stack";
+
+// // Importing Components
+// import WelcomeScreen from "./app/screens/WelcomeScreen";
+// import MainScreen from "./app/screens/MainScreen";
+
+// // creating the stacks of the route
+// const Navigator = createStackNavigator({
+//   WelcomeScreen: { screen: WelcomeScreen },
+//   MainScreen: { screen: MainScreen },
+// });
+
+// const App = createAppContainer(Navigator);
+
+// export default App;
 
 // View - map to UI View or an Android View
 // export default function App() {

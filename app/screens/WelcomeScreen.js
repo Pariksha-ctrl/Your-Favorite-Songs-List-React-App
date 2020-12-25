@@ -31,7 +31,7 @@ export default class WelcomeScreen extends React.Component {
         <View style={styles.registerButton}>
           <Button
             title="Register Here!"
-            onPress={() => navigate("MainScreen", { name: "Pariksha" })}
+            onPress={() => navigate("MainScreen")}
           />
         </View>
       </ImageBackground>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: "absolute",
-    top: 70,
+    top: 20,
     alignItems: "center",
   },
   registerButton: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -24,7 +24,7 @@ const listTab = [
   },
 ];
 
-// Register Screen
+// Main Screen
 export default class MainScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -35,11 +35,22 @@ export default class MainScreen extends React.Component {
   render() {
     const { navigate, state } = this.props.navigation;
 
+    const [status, setStatus] = useState("All");
+    const setStausFilter = (status) => {
+      setStatus(status);
+    };
+
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.listTab}>
           {listTab.map((e) => (
-            <TouchableOpacity style={styles.buttonTab}>
+            <TouchableOpacity
+              style={[
+                styles.buttonTab,
+                status === e.status && styles.buttonTabActive,
+              ]}
+              onPress={() => setStausFilter(e.status)}
+            >
               <Text style={styles.textTab}>{e.status}</Text>
             </TouchableOpacity>
           ))}
