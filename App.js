@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { render } from "react-dom";
 import {
   StyleSheet,
   View,
@@ -25,6 +26,8 @@ const listTab = [
     status: "Unliked Songs",
   },
 ];
+
+
 
 const App = () => {
   const [status, setStatus] = useState("All");
@@ -62,6 +65,8 @@ const App = () => {
         <Button title="Register Here!" onPress={() => navigate("MainScreen")} />
       </View>
       {/* </ImageBackground> */}
+      <FlatList data={data} keyExtractor={(e, i) => i.toString()} 
+      renderItem={renderItem}/>
     </SafeAreaView>
   );
 };
