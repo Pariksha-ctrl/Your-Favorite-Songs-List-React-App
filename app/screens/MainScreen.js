@@ -15,9 +15,7 @@ export default class MainScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text>
-          Hello {state.params.name} choose your favorite song categories!
-        </Text>
+        <Text>Hello {state.params.name}</Text>
 
         <Button
           title="Set Selected Categories"
