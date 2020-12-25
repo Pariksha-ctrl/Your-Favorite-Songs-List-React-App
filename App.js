@@ -30,11 +30,11 @@ const listTab = [
 const data = [
   {
     name: "Last Christmas",
-    status: "All",
+    status: "Favorite Songs",
   },
   {
     name: "Back to December",
-    status: "All",
+    status: "Unliked Songs",
   },
   {
     name: "All of me",
@@ -46,7 +46,7 @@ const data = [
   },
   {
     name: "Perfect",
-    status: "All",
+    status: "Favorite Songs",
   },
 ];
 
@@ -56,7 +56,7 @@ const App = () => {
     setStatus(status);
   };
 
-  const renderItem = ({ item, index }) => {
+  const renderSong = ({ song, index }) => {
     return (
       <View key={index} style={styles.songContainer}>
         <View style={styles.songLogo}>
@@ -64,9 +64,17 @@ const App = () => {
             style={styles.songImage}
             source={{
               url:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZVCO5lGOnhPZTclML8cGGFPCerXOb9fbBg&usqp=CAU",
+                "https://i.pinimg.com/564x/ba/4e/31/ba4e319e3f58173908fcf134d0606568.jpg",
             }}
           />
+        </View>
+
+        <View style={styles.songBody}>
+          <Text style={styles.songName}>{song.name}</Text>
+        </View>
+
+        <View style={styles.songStatus}>
+          <Text>{song.status}</Text>
         </View>
       </View>
     );
@@ -105,7 +113,7 @@ const App = () => {
       <FlatList
         data={data}
         keyExtractor={(e, i) => i.toString()}
-        renderItem={renderItem}
+        renderSong={renderSong}
       />
     </SafeAreaView>
   );
@@ -141,7 +149,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTab: {
-    width: Dimensions.get("window").width / 3.5,
+    width: Dimensions.get("window").width / 4,
     flexDirection: "row",
     borderWidth: 0.5,
     borderColor: "#EBEBEB",
@@ -168,6 +176,21 @@ const styles = StyleSheet.create({
   songImage: {
     width: 50,
     height: 50,
+  },
+  songBody: {
+    flex: 1,
+    paddingHorizontal: 10,
+    justifyContent: "center",
+  },
+  songName: {
+    fontWeight: "bold",
+    fontSize: 15,
+  },
+  songStatus: {
+    backgroundColor: "green",
+    paddingHorizontal: 6,
+    justifyContent: "center",
+    right: 12,
   },
 });
 
