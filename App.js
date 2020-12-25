@@ -1,36 +1,20 @@
 // Importing Libraries
 // import { StatusBar } from 'expo-sta/tus-bar';
 import React from "react";
-import {
-  View,
-  // Dimensions,
-  // StyleSheet,
-  Text,
-  // TouchableWithoutFeedback,
-  // View,
-  // Image,
-  // SafeAreaView,
-  // Alert,
-  // Platform,
-  // StatusBar,
-  Button,
-} from "react-native";
+import { View, Text, Button } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 // Importing Components
-import WelcomeScreen from "./screens/WelcomeScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-// import {
-//   useDimensions,
-//   useDeviceOrientation,
-// } from "@react-native-community/hooks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
+import MainScreen from "./app/screens/MainScreen";
 
 // creating the stacks of the route
 const Navigator = createStackNavigator({
   WelcomeScreen: { screen: WelcomeScreen },
   RegisterScreen: { screen: RegisterScreen },
+  MainScreen: { screen: MainScreen },
 });
 
 const App = createAppContainer(Navigator);
@@ -157,3 +141,26 @@ export default App;
 
 // width: "100%",
 // height: portrait ? "30%" : "100%",
+
+// IMPORTS
+
+// import React from "react";
+// import {
+//   View,
+//   // Dimensions,
+//   // StyleSheet,
+//   Text,
+//   // TouchableWithoutFeedback,
+//   // View,
+//   // Image,
+//   // SafeAreaView,
+//   // Alert,
+//   // Platform,
+//   // StatusBar,
+//   Button,
+// } from "react-native";
+
+// import {
+//   useDimensions,
+//   useDeviceOrientation,
+// } from "@react-native-community/hooks";
