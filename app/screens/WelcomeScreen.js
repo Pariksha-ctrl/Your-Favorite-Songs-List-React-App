@@ -31,10 +31,7 @@ export default class WelcomeScreen extends React.Component {
           <Text>Listen to your favorite songs!</Text>
         </View>
         <View style={styles.registerButton}>
-          <Button
-            title="REGISTER"
-            onPress={() => navigate("RegisterScreen", { name: "Pariksha" })}
-          />
+          <Button title="REGISTER" onPress={() => navigate("RegisterScreen")} />
         </View>
         {/* </View> */}
       </ImageBackground>
