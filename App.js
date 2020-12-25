@@ -57,7 +57,19 @@ const App = () => {
   };
 
   const renderItem = ({ item, index }) => {
-    return <View key={index} style={styles.itemContainer}></View>;
+    return (
+      <View key={index} style={styles.songContainer}>
+        <View style={styles.songLogo}>
+          <Image
+            style={styles.songImage}
+            source={{
+              url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZVCO5lGOnhPZTclML8cGGFPCerXOb9fbBg&usqp=CAU",
+            }}
+          />
+        </View>
+      </View>
+    );
   };
 
   return (
@@ -86,9 +98,9 @@ const App = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={styles.registerButton}>
+      {/* <View style={styles.registerButton}>
         <Button title="Register Here!" onPress={() => navigate("MainScreen")} />
-      </View>
+      </View> */}
       {/* </ImageBackground> */}
       <FlatList
         data={data}
@@ -146,9 +158,16 @@ const styles = StyleSheet.create({
   textTabActive: {
     color: "#fff",
   },
-  itemContainer: {
+  songContainer: {
     flexDirection: "row",
     paddingVertical: 15,
+  },
+  songLogo: {
+    padding: 10,
+  },
+  songImage: {
+    width: 50,
+    height: 50,
   },
 });
 
