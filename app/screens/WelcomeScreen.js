@@ -5,7 +5,6 @@ import {
   View,
   Image,
   ImageBackground,
-  ImageStyle,
   Text,
 } from "react-native";
 
@@ -22,7 +21,6 @@ export default class WelcomeScreen extends React.Component {
         style={styles.background}
         source={require("../assets/background.jpg")}
       >
-        {/* <View style={styles.container}> */}
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
@@ -31,9 +29,8 @@ export default class WelcomeScreen extends React.Component {
           <Text>Listen to your favorite songs!</Text>
         </View>
         <View style={styles.registerButton}>
-          <Button title="REGISTER" onPress={() => navigate("RegisterScreen")} />
+          <Button title="REGISTER" onPress={() => navigate("MainScreen")} />
         </View>
-        {/* </View> */}
       </ImageBackground>
     );
   }

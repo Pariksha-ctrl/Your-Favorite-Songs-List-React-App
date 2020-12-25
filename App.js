@@ -7,13 +7,11 @@ import { createStackNavigator } from "react-navigation-stack";
 
 // Importing Components
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
 import MainScreen from "./app/screens/MainScreen";
 
 // creating the stacks of the route
 const Navigator = createStackNavigator({
   WelcomeScreen: { screen: WelcomeScreen },
-  RegisterScreen: { screen: RegisterScreen },
   MainScreen: { screen: MainScreen },
 });
 
