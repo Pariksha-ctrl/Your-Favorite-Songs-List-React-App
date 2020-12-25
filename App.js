@@ -52,6 +52,8 @@ const data = [
 
 const App = () => {
   const [status, setStatus] = useState("All");
+  const [datalist, setDataList] = useState(data);
+  
   const setStausFilter = (status) => {
     setStatus(status);
   };
