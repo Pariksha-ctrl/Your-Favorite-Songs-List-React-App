@@ -48,7 +48,13 @@ const App = () => {
             ]}
             onPress={() => setStausFilter(e.status)}
           >
-            <Text style={styles.textTab}>{e.status}</Text>
+            <Text
+              style={
+                (styles.textTab, status === e.status && styles.textTabActive)
+              }
+            >
+              {e.status}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -99,9 +105,13 @@ const styles = StyleSheet.create({
   },
   textTab: {
     fontSize: 15,
+    color: "#000",
   },
   buttonTabActive: {
     backgroundColor: "#E683BD",
+  },
+  textTabActive: {
+    color: "#fff",
   },
 });
 
