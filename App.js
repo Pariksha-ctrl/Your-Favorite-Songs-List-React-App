@@ -57,7 +57,7 @@ const App = () => {
   };
 
   const renderItem = ({ item, index }) => {
-    return <View></View>;
+    return <View key={index} style={styles.itemContainer}></View>;
   };
 
   return (
@@ -145,6 +145,10 @@ const styles = StyleSheet.create({
   },
   textTabActive: {
     color: "#fff",
+  },
+  itemContainer: {
+    flexDirection: "row",
+    paddingVertical: 15,
   },
 });
 
