@@ -1,7 +1,8 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
+  const [name, setName] = useState("All of me");
   return (
     <View style={styles.containter}>
       <View style={styles.header}>
@@ -9,8 +10,13 @@ export default function App() {
       </View>
       <View style={styles.body}>
         <Text style={styles.boldText}>All Songs</Text>
-        <Text style={styles.boldText}>Favorite Songs</Text>
+        <Text style={styles.boldText}>
+          Favorite Songs - <Text>My favorite song is {name}</Text>
+        </Text>
         <Text style={styles.boldText}>Unliked Songs</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="All Songs" />
       </View>
     </View>
   );
@@ -33,6 +39,9 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: "yellow",
     padding: 20,
+  },
+  buttonContainer: {
+    backgroundColor: "green",
   },
 });
 
