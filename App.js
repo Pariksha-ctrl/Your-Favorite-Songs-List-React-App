@@ -1,207 +1,227 @@
-import React, { useState } from "react";
-import { render } from "react-dom";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  Dimensions,
-  FlatList,
-  Image,
-  SafeAreaView,
-  TouchableOpacity,
-  ListItem,
-} from "react-native";
-import {} from "react-navigation";
-// import BackgroundImage from "./assets/backgroundImage.jpg";
-// import LogoImage from "./assets/red-logo.png";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-const listTab = [
-  {
-    status: "All",
-  },
-  {
-    status: "Favorite",
-  },
-  {
-    status: "Unliked",
-  },
-];
-
-const data = [
-  {
-    name: "Last Christmas",
-    status: "Favorite",
-  },
-  {
-    name: "Back to December",
-    status: "Unliked",
-  },
-  {
-    name: "All of me",
-    status: "Favorite",
-  },
-  {
-    name: "Because of you",
-    status: "Unliked",
-  },
-  {
-    name: "Perfect",
-    status: "Favorite",
-  },
-];
-
-const App = () => {
-  const [status, setStatus] = useState("All");
-  const [datalist, setDataList] = useState(data);
-
-  const setStausFilter = (status) => {
-    if (status !== "All") {
-      // i.e if the song is other than all which is either purple or green in color
-      setDataList([...data.filter((e) => e.status === status)]);
-    } else {
-      setDataList(data);
-    }
-    setStatus(status);
-  };
-
-  const renderSong = ({ song, index }) => {
-    return (
-      <View key={index} style={styles.songContainer}>
-        <View style={styles.songLogo}>
-          <Image
-            style={styles.songImage}
-            source={{
-              url:
-                "https://i.pinimg.com/564x/ba/4e/31/ba4e319e3f58173908fcf134d0606568.jpg",
-            }}
-          />
-        </View>
-
-        <View style={styles.songBody}>
-          <Text style={styles.songName}>{song.name}</Text>
-        </View>
-
-        <View
-          style={[
-            styles.songStatus,
-            {
-              backgroundColor:
-                song.status === "Favorite" ? "#e5848e" : "#69c080",
-            },
-          ]}
-        >
-          <Text>{song.status}</Text>
-        </View>
-      </View>
-    );
-  };
-
+export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.listTab}>
-        {listTab.map((e) => (
-          <TouchableOpacity
-            style={[
-              styles.buttonTab,
-              status === e.status && styles.buttonTabActive,
-            ]}
-            onPress={() => setStausFilter(e.status)}
-          >
-            <Text
-              style={
-                (styles.textTab, status === e.status && styles.textTabActive)
-              }
-            >
-              {e.status}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      <FlatList
-        data={datalist}
-        keyExtractor={(e, i) => i.toString()}
-        renderSong={renderSong}
-      />
-    </SafeAreaView>
+    <View style={styles.containter}>
+      <Text>Let's try something new!</Text>
+    </View>
   );
-};
-export default App;
+}
 
-// shortcut react-native stylesheet
 const styles = StyleSheet.create({
-  container: {
+  containter: {
     flex: 1,
-    paddingHorizontal: 10,
-    justifyContent: "center",
-  },
-  background: {
-    flex: 1,
-    justifyContent: "flex-end",
+    backgroundColor: "#fff",
     alignItems: "center",
-  },
-  logoContainer: {
-    position: "absolute",
-    top: 20,
-    alignItems: "center",
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: "#4ecdc4",
-  },
-  listTab: {
-    flexDirection: "row",
-    alignSelf: "center",
-    marginBottom: 20,
-  },
-  buttonTab: {
-    width: Dimensions.get("window").width / 4,
-    flexDirection: "row",
-    borderWidth: 0.5,
-    borderColor: "#EBEBEB",
-    padding: 10,
     justifyContent: "center",
-    top: 40,
-  },
-  textTab: {
-    fontSize: 15,
-    color: "#000",
-  },
-  buttonTabActive: {
-    backgroundColor: "#E683BD",
-  },
-  textTabActive: {
-    color: "#fff",
-  },
-  songContainer: {
-    flexDirection: "row",
-    paddingVertical: 15,
-  },
-  songLogo: {
-    padding: 10,
-  },
-  songImage: {
-    width: 50,
-    height: 50,
-  },
-  songBody: {
-    flex: 1,
-    paddingHorizontal: 10,
-    justifyContent: "center",
-  },
-  songName: {
-    fontWeight: "bold",
-    fontSize: 15,
-  },
-  songStatus: {
-    backgroundColor: "green",
-    paddingHorizontal: 6,
-    justifyContent: "center",
-    right: 12,
   },
 });
+
+// // KEEPING THIS IN A SAFE SITE
+
+// import React, { useState } from "react";
+// import { render } from "react-dom";
+// import {
+//   StyleSheet,
+//   View,
+//   Text,
+//   Button,
+//   Dimensions,
+//   FlatList,
+//   Image,
+//   SafeAreaView,
+//   TouchableOpacity,
+//   ListItem,
+// } from "react-native";
+// import {} from "react-navigation";
+
+// const listTab = [
+//   {
+//     status: "All",
+//   },
+//   {
+//     status: "Favorite",
+//   },
+//   {
+//     status: "Unliked",
+//   },
+// ];
+
+// const data = [
+//   {
+//     name: "Last Christmas",
+//     status: "Favorite",
+//   },
+//   {
+//     name: "Back to December",
+//     status: "Unliked",
+//   },
+//   {
+//     name: "All of me",
+//     status: "Favorite",
+//   },
+//   {
+//     name: "Because of you",
+//     status: "Unliked",
+//   },
+//   {
+//     name: "Perfect",
+//     status: "Favorite",
+//   },
+// ];
+
+// const App = () => {
+//   const [status, setStatus] = useState("All");
+//   const [datalist, setDataList] = useState(data);
+
+//   const setStausFilter = (status) => {
+//     if (status !== "All") {
+//       // i.e if the song is other than all which is either purple or green in color
+//       setDataList([...data.filter((e) => e.status === status)]);
+//     } else {
+//       setDataList(data);
+//     }
+//     setStatus(status);
+//   };
+
+//   const renderSong = ({ song, index }) => {
+//     return (
+//       <View key={index} style={styles.songContainer}>
+//         <View style={styles.songLogo}>
+//           <Image
+//             style={styles.songImage}
+//             source={{
+//               url:
+//                 "https://i.pinimg.com/564x/ba/4e/31/ba4e319e3f58173908fcf134d0606568.jpg",
+//             }}
+//           />
+//         </View>
+
+//         <View style={styles.songBody}>
+//           <Text style={styles.songName}>{song.name}</Text>
+//         </View>
+
+//         <View
+//           style={[
+//             styles.songStatus,
+//             {
+//               backgroundColor:
+//                 song.status === "Favorite" ? "#e5848e" : "#69c080",
+//             },
+//           ]}
+//         >
+//           <Text>{song.status}</Text>
+//         </View>
+//       </View>
+//     );
+//   };
+
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <View style={styles.listTab}>
+//         {listTab.map((e) => (
+//           <TouchableOpacity
+//             style={[
+//               styles.buttonTab,
+//               status === e.status && styles.buttonTabActive,
+//             ]}
+//             onPress={() => setStausFilter(e.status)}
+//           >
+//             <Text
+//               style={
+//                 (styles.textTab, status === e.status && styles.textTabActive)
+//               }
+//             >
+//               {e.status}
+//             </Text>
+//           </TouchableOpacity>
+//         ))}
+//       </View>
+
+//       <FlatList
+//         data={datalist}
+//         keyExtractor={(e, i) => i.toString()}
+//         renderSong={renderSong}
+//       />
+//     </SafeAreaView>
+//   );
+// };
+// export default App;
+
+// // shortcut react-native stylesheet
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     paddingHorizontal: 10,
+//     justifyContent: "center",
+//   },
+//   background: {
+//     flex: 1,
+//     justifyContent: "flex-end",
+//     alignItems: "center",
+//   },
+//   logoContainer: {
+//     position: "absolute",
+//     top: 20,
+//     alignItems: "center",
+//   },
+//   registerButton: {
+//     width: "100%",
+//     height: 70,
+//     backgroundColor: "#4ecdc4",
+//   },
+//   listTab: {
+//     flexDirection: "row",
+//     alignSelf: "center",
+//     marginBottom: 20,
+//   },
+//   buttonTab: {
+//     width: Dimensions.get("window").width / 4,
+//     flexDirection: "row",
+//     borderWidth: 0.5,
+//     borderColor: "#EBEBEB",
+//     padding: 10,
+//     justifyContent: "center",
+//     top: 40,
+//   },
+//   textTab: {
+//     fontSize: 15,
+//     color: "#000",
+//   },
+//   buttonTabActive: {
+//     backgroundColor: "#E683BD",
+//   },
+//   textTabActive: {
+//     color: "#fff",
+//   },
+//   songContainer: {
+//     flexDirection: "row",
+//     paddingVertical: 15,
+//   },
+//   songLogo: {
+//     padding: 10,
+//   },
+//   songImage: {
+//     width: 50,
+//     height: 50,
+//   },
+//   songBody: {
+//     flex: 1,
+//     paddingHorizontal: 10,
+//     justifyContent: "center",
+//   },
+//   songName: {
+//     fontWeight: "bold",
+//     fontSize: 15,
+//   },
+//   songStatus: {
+//     backgroundColor: "green",
+//     paddingHorizontal: 6,
+//     justifyContent: "center",
+//     right: 12,
+//   },
+// });
 
 // BACKUPS
 
