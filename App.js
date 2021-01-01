@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
-  const [name, setName] = useState("All of me");
+  const [favoriteSongName, setFavoriteSongName] = useState("All of me");
+  const [unlikedSong, setUnlikedSong] = useState({
+    name: "Complicated",
+    singer: "April Lavange",
+  });
+  const allSongsClickHandler = () => {
+    setFavoriteSongName("You're Beautiful");
+    setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
+  };
+
   return (
     <View style={styles.containter}>
       <View style={styles.header}>
@@ -11,12 +20,18 @@ export default function App() {
       <View style={styles.body}>
         <Text style={styles.boldText}>All Songs</Text>
         <Text style={styles.boldText}>
-          Favorite Songs - <Text>My favorite song is {name}</Text>
+          Favorite Songs - <Text>Your favorite song is {favoriteSongName}</Text>
         </Text>
-        <Text style={styles.boldText}>Unliked Songs</Text>
+        <Text style={styles.boldText}>
+          Unliked Songs -{" "}
+          <Text>
+            Your unliked song is {unlikedSong.name} and the singer of this song
+            is {unlikedSong.singer}
+          </Text>
+        </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="All Songs" />
+        <Button title="Update Song State" onPress={allSongsClickHandler} />
       </View>
     </View>
   );
@@ -41,7 +56,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   buttonContainer: {
-    backgroundColor: "green",
+    marginTop: 20,
   },
 });
 
