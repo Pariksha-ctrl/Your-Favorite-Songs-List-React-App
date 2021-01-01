@@ -7,6 +7,11 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.boldText}>Your Favorite Song List</Text>
       </View>
+      <View style={styles.body}>
+        <Text style={styles.boldText}>All Songs</Text>
+        <Text style={styles.boldText}>Favorite Songs</Text>
+        <Text style={styles.boldText}>Unliked Songs</Text>
+      </View>
     </View>
   );
 }
@@ -24,6 +29,10 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: "bold",
+  },
+  body: {
+    backgroundColor: "yellow",
+    padding: 20,
   },
 });
 
