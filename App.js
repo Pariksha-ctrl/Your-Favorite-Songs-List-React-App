@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
+  const [name, setName] = useState("Pariksha");
+  const [email, setEmail] = useState("parikshanepali@gmail.com");
   const [favoriteSongName, setFavoriteSongName] = useState("All of me");
   const [unlikedSong, setUnlikedSong] = useState({
     name: "Complicated",
@@ -14,6 +16,25 @@ export default function App() {
 
   return (
     <View style={styles.containter}>
+      <Text>Enter Name:</Text>
+      <TextInput
+        multiline
+        style={styles.input}
+        placeholder="e.g. Pariksha"
+        onChangeText={(val) => setName(val)}
+      />
+
+      <Text>Enter Email:</Text>
+      <TextInput
+        multiline
+        style={styles.input}
+        placeholder="e.g. parikshanepali@gmail.com"
+        onChangeText={(val) => setName(val)}
+      />
+      <Text>
+        name: {name}, email: {email}
+      </Text>
+
       <View style={styles.header}>
         <Text style={styles.boldText}>Your Favorite Song List</Text>
       </View>
@@ -57,6 +78,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#777",
+    padding: 8,
+    margin: 10,
+    width: 200,
   },
 });
 
