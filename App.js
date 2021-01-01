@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.containter}>
-      <Text>Let's try something new!</Text>
+      <View style={styles.header}>
+        <Text style={styles.boldText}>Your Favorite Song List</Text>
+      </View>
     </View>
   );
 }
@@ -15,6 +17,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  header: {
+    backgroundColor: "lightblue",
+    padding: 20,
+  },
+  boldText: {
+    fontWeight: "bold",
   },
 });
 
