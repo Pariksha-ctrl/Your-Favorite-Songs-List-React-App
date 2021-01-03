@@ -9,6 +9,20 @@ export default function App() {
     name: "Complicated",
     singer: "April Lavange",
   });
+
+  const [allSongs, setAllSongs] = useState([
+    { songName: "Timro Mann", key: "1" },
+    { songName: "Parkhaima", key: "2" },
+    { songName: "Purano Hudaina Maya", key: "3" },
+    { songName: "Sayau Juni", key: "4" },
+    { songName: "Timi Sanga Najar judhai", key: "5" },
+    { songName: "Tai Mori ko Maya", key: "6" },
+    { songName: "Mann Thiyena Jogi Banna Lai", key: "7" },
+    { songName: "Mayalu", key: "8" },
+    { songName: "Timrai Maya Lagxa", key: "9" },
+    { songName: "Maya Le Bolayo Malai", key: "10" },
+  ]);
+
   const allSongsClickHandler = () => {
     setFavoriteSongName("You're Beautiful");
     setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
@@ -34,6 +48,16 @@ export default function App() {
       <Text>
         name: {name}, email: {email}
       </Text>
+
+      <View style={styles.allSongsListContainer}>
+        {allSongs.map((song) => {
+          return (
+            <View key={song.key}>
+              <Text style={styles.song}>(song.songName)</Text>
+            </View>
+          );
+        })}
+      </View>
 
       <View style={styles.header}>
         <Text style={styles.boldText}>Your Favorite Song List</Text>
@@ -71,6 +95,18 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: "bold",
+  },
+  allSongsListContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingTop: 40,
+    paddingHorizontal: 20,
+  },
+  song: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: "pink",
+    fontSize: 24,
   },
   body: {
     backgroundColor: "yellow",
