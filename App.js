@@ -4,8 +4,10 @@ import {
   Text,
   View,
   FlatList,
-  TouchableOpacity,
+  //TouchableOpacity,
 } from "react-native";
+import Header from "./app/components/header";
+import SongCategoryItem from "./app/components/songcategory";
 
 export default function App() {
   // const [allSongs, setAllSongs] = useState([
@@ -27,6 +29,12 @@ export default function App() {
     { songCategory: "Unliked Songs", key: "3" },
   ]);
 
+  // const pressHandler = (key) => {
+  //   setSongs((previousSongCategory) => {
+  //     return previousSongCategory.filter((song) => song.key != key);
+  //   });
+  // };
+
   // const pressHandler = (id) => {
   //   console.log(id);
   //   // to delete the clicked item
@@ -37,14 +45,15 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* header */}
+      <Header />
       <View style={styles.content}>
-        {/* to various kinds of Songs of your choice */}
         <View style={styles.list}>
-          {/**to list of various topic songs */}
           <FlatList
             data={songs}
-            renderItem={({ item }) => <Text>{item.songCategory}</Text>}
+            renderItem={({ item }) => (
+              //pressHandler={pressHandler}
+              <SongCategoryItem item={item} />
+            )}
           />
         </View>
       </View>
@@ -59,7 +68,7 @@ export default function App() {
             </TouchableOpacity>
           )}
         />
-      </View> */}
+          </View> */}
     </View>
   );
 }
