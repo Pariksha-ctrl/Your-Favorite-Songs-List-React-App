@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import { LongPressGestureHandler } from "react-native-gesture-handler";
 
 export default function App() {
   // const [name, setName] = useState("Pariksha");
@@ -28,6 +35,14 @@ export default function App() {
   //   setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
   // };
 
+  const pressHandler = (id) => {
+    console.log(id);
+    // to delete the clicked item
+    setAllSongs((previousSong) => {
+      return previousSong.filter((song) => song.id != id);
+    });
+  };
+
   return (
     <View style={styles.allSongsContainer}>
       <FlatList
@@ -35,7 +50,9 @@ export default function App() {
         keyExtractor={(item) => item.id}
         data={allSongs}
         renderItem={({ item }) => (
-          <Text style={styles.item}>{item.songName}</Text>
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.item}>{item.songName}</Text>
+          </TouchableOpacity>
         )}
       />
     </View>
