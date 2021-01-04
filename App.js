@@ -6,74 +6,87 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { LongPressGestureHandler } from "react-native-gesture-handler";
 
 export default function App() {
-  // const [name, setName] = useState("Pariksha");
-  // const [email, setEmail] = useState("parikshanepali@gmail.com");
-  // const [favoriteSongName, setFavoriteSongName] = useState("All of me");
-  // const [unlikedSong, setUnlikedSong] = useState({
-  //   name: "Complicated",
-  //   singer: "April Lavange",
-  // });
+  // const [allSongs, setAllSongs] = useState([
+  //   { songName: "Timro Mann", id: "1" },
+  //   { songName: "Parkhaima", id: "2" },
+  //   { songName: "Purano Hudaina Maya", id: "3" },
+  //   { songName: "Sayau Juni", id: "4" },
+  //   { songName: "Timi Sanga Najar judhai", id: "5" },
+  //   { songName: "Tai Mori ko Maya", id: "6" },
+  //   { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
+  //   { songName: "Mayalu", id: "8" },
+  //   { songName: "Timrai Maya Lagxa", id: "9" },
+  //   { songName: "Maya Le Bolayo Malai", id: "10" },
+  // ]);
 
-  const [allSongs, setAllSongs] = useState([
-    { songName: "Timro Mann", id: "1" },
-    { songName: "Parkhaima", id: "2" },
-    { songName: "Purano Hudaina Maya", id: "3" },
-    { songName: "Sayau Juni", id: "4" },
-    { songName: "Timi Sanga Najar judhai", id: "5" },
-    { songName: "Tai Mori ko Maya", id: "6" },
-    { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
-    { songName: "Mayalu", id: "8" },
-    { songName: "Timrai Maya Lagxa", id: "9" },
-    { songName: "Maya Le Bolayo Malai", id: "10" },
+  const [songs, setSongs] = useState([
+    { songCategory: "All Songs", key: "1" },
+    { songCategory: "Favorite Songs", key: "2" },
+    { songCategory: "Unliked Songs", key: "3" },
   ]);
 
-  // const allSongsClickHandler = () => {
-  //   setFavoriteSongName("You're Beautiful");
-  //   setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
+  // const pressHandler = (id) => {
+  //   console.log(id);
+  //   // to delete the clicked item
+  //   setAllSongs((previousSong) => {
+  //     return previousSong.filter((song) => song.id != id);
+  //   });
   // };
 
-  const pressHandler = (id) => {
-    console.log(id);
-    // to delete the clicked item
-    setAllSongs((previousSong) => {
-      return previousSong.filter((song) => song.id != id);
-    });
-  };
-
   return (
-    <View style={styles.allSongsContainer}>
-      <FlatList
-        numColumns={1}
-        keyExtractor={(item) => item.id}
-        data={allSongs}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => pressHandler(item.id)}>
-            <Text style={styles.item}>{item.songName}</Text>
-          </TouchableOpacity>
-        )}
-      />
+    <View style={styles.container}>
+      {/* header */}
+      <View style={styles.content}>
+        {/* to various kinds of Songs of your choice */}
+        <View style={styles.list}>
+          {/**to list of various topic songs */}
+          <FlatList
+            data={songs}
+            renderItem={({ item }) => <Text>{item.songCategory}</Text>}
+          />
+        </View>
+      </View>
+      {/* <View style={styles.allSongsContainer}>
+        <FlatList
+          numColumns={1}
+          keyExtractor={(item) => item.id}
+          data={allSongs}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => pressHandler(item.id)}>
+              <Text style={styles.item}>{item.songName}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  allSongsContainer: {
+  container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 40,
-    paddingHorizontal: 20,
   },
-  item: {
-    marginTop: 24,
-    padding: 30,
-    backgroundColor: "pink",
-    fontSize: 24,
-    marginHorizontal: 10,
-    marginTop: 24,
+  content: {
+    padding: 40,
   },
+  list: {
+    marginTop: 20,
+  },
+  // allSongsContainer: {
+  //   paddingTop: 40,
+  //   paddingHorizontal: 20,
+  // },
+  // item: {
+  //   marginTop: 24,
+  //   padding: 30,
+  //   backgroundColor: "pink",
+  //   fontSize: 24,
+  //   marginHorizontal: 10,
+  //   marginTop: 24,
+  // },
 });
 
 //{
@@ -85,6 +98,18 @@ const styles = StyleSheet.create({
         ))}
       </ScrollView> */
 //}
+// const [name, setName] = useState("Pariksha");
+// const [email, setEmail] = useState("parikshanepali@gmail.com");
+// const [favoriteSongName, setFavoriteSongName] = useState("All of me");
+// const [unlikedSong, setUnlikedSong] = useState({
+//   name: "Complicated",
+//   singer: "April Lavange",
+// });
+
+// const allSongsClickHandler = () => {
+//   setFavoriteSongName("You're Beautiful");
+//   setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
+// };
 
 // // KEEPING THIS IN A SAFE SITE - 2
 
