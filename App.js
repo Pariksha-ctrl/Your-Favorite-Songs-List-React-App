@@ -1,128 +1,171 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
 export default function App() {
-  const [name, setName] = useState("Pariksha");
-  const [email, setEmail] = useState("parikshanepali@gmail.com");
-  const [favoriteSongName, setFavoriteSongName] = useState("All of me");
-  const [unlikedSong, setUnlikedSong] = useState({
-    name: "Complicated",
-    singer: "April Lavange",
-  });
+  // const [name, setName] = useState("Pariksha");
+  // const [email, setEmail] = useState("parikshanepali@gmail.com");
+  // const [favoriteSongName, setFavoriteSongName] = useState("All of me");
+  // const [unlikedSong, setUnlikedSong] = useState({
+  //   name: "Complicated",
+  //   singer: "April Lavange",
+  // });
 
   const [allSongs, setAllSongs] = useState([
-    { songName: "Timro Mann", key: "1" },
-    { songName: "Parkhaima", key: "2" },
-    { songName: "Purano Hudaina Maya", key: "3" },
-    { songName: "Sayau Juni", key: "4" },
-    { songName: "Timi Sanga Najar judhai", key: "5" },
-    { songName: "Tai Mori ko Maya", key: "6" },
-    { songName: "Mann Thiyena Jogi Banna Lai", key: "7" },
-    { songName: "Mayalu", key: "8" },
-    { songName: "Timrai Maya Lagxa", key: "9" },
-    { songName: "Maya Le Bolayo Malai", key: "10" },
+    { songName: "Timro Mann", id: "1" },
+    { songName: "Parkhaima", id: "2" },
+    { songName: "Purano Hudaina Maya", id: "3" },
+    { songName: "Sayau Juni", id: "4" },
+    { songName: "Timi Sanga Najar judhai", id: "5" },
+    { songName: "Tai Mori ko Maya", id: "6" },
+    { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
+    { songName: "Mayalu", id: "8" },
+    { songName: "Timrai Maya Lagxa", id: "9" },
+    { songName: "Maya Le Bolayo Malai", id: "10" },
   ]);
 
-  const allSongsClickHandler = () => {
-    setFavoriteSongName("You're Beautiful");
-    setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
-  };
+  // const allSongsClickHandler = () => {
+  //   setFavoriteSongName("You're Beautiful");
+  //   setUnlikedSong({ name: "I'm Yours", singer: "Bruno Mars" });
+  // };
 
   return (
-    <View style={styles.containter}>
-      <Text>Enter Name:</Text>
-      <TextInput
-        multiline
-        style={styles.input}
-        placeholder="e.g. Pariksha"
-        onChangeText={(val) => setName(val)}
+    <View style={styles.allSongsContainer}>
+      <FlatList
+        numColumns={1}
+        keyExtractor={(item) => item.id}
+        data={allSongs}
+        renderItem={({ item }) => (
+          <Text style={styles.item}>{item.songName}</Text>
+        )}
       />
-
-      <Text>Enter Email:</Text>
-      <TextInput
-        multiline
-        style={styles.input}
-        placeholder="e.g. parikshanepali@gmail.com"
-        onChangeText={(val) => setName(val)}
-      />
-      <Text>
-        name: {name}, email: {email}
-      </Text>
-
-      <View style={styles.allSongsListContainer}>
-        {allSongs.map((song) => {
-          return (
-            <View key={song.key}>
-              <Text style={styles.song}>(song.songName)</Text>
-            </View>
-          );
-        })}
-      </View>
-
-      <View style={styles.header}>
-        <Text style={styles.boldText}>Your Favorite Song List</Text>
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.boldText}>All Songs</Text>
-        <Text style={styles.boldText}>
-          Favorite Songs - <Text>Your favorite song is {favoriteSongName}</Text>
-        </Text>
-        <Text style={styles.boldText}>
-          Unliked Songs -{" "}
-          <Text>
-            Your unliked song is {unlikedSong.name} and the singer of this song
-            is {unlikedSong.singer}
-          </Text>
-        </Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button title="Update Song State" onPress={allSongsClickHandler} />
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  containter: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  header: {
-    backgroundColor: "lightblue",
-    padding: 20,
-  },
-  boldText: {
-    fontWeight: "bold",
-  },
-  allSongsListContainer: {
+  allSongsContainer: {
     flex: 1,
     backgroundColor: "#fff",
     paddingTop: 40,
     paddingHorizontal: 20,
   },
-  song: {
+  item: {
     marginTop: 24,
     padding: 30,
     backgroundColor: "pink",
     fontSize: 24,
-  },
-  body: {
-    backgroundColor: "yellow",
-    padding: 20,
-  },
-  buttonContainer: {
-    marginTop: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#777",
-    padding: 8,
-    margin: 10,
-    width: 200,
+    marginHorizontal: 10,
+    marginTop: 24,
   },
 });
+
+//{
+/* <ScrollView>
+        {allSongs.map((song) => (
+          <View key={song.key}>
+            <Text style={styles.song}>{song.songName}</Text>
+          </View>
+        ))}
+      </ScrollView> */
+//}
+
+// // KEEPING THIS IN A SAFE SITE - 2
+
+//   return (
+//     <View style={styles.containter}>
+//       <Text>Enter Name:</Text>
+//       <TextInput
+//         multiline
+//         style={styles.input}
+//         placeholder="e.g. Pariksha"
+//         onChangeText={(val) => setName(val)}
+//       />
+
+//       <Text>Enter Email:</Text>
+//       <TextInput
+//         multiline
+//         style={styles.input}
+//         placeholder="e.g. parikshanepali@gmail.com"
+//         onChangeText={(val) => setName(val)}
+//       />
+//       <Text>
+//         name: {name}, email: {email}
+//       </Text>
+
+//       <View style={styles.allSongsListContainer}>
+//         {allSongs.map((song) => {
+//           return (
+//             <View key={song.key}>
+//               <Text style={styles.song}>(song.songName)</Text>
+//             </View>
+//           );
+//         })}
+//       </View>
+
+//       <View style={styles.header}>
+//         <Text style={styles.boldText}>Your Favorite Song List</Text>
+//       </View>
+//       <View style={styles.body}>
+//         <Text style={styles.boldText}>All Songs</Text>
+//         <Text style={styles.boldText}>
+//           Favorite Songs - <Text>Your favorite song is {favoriteSongName}</Text>
+//         </Text>
+//         <Text style={styles.boldText}>
+//           Unliked Songs -{" "}
+//           <Text>
+//             Your unliked song is {unlikedSong.name} and the singer of this song
+//             is {unlikedSong.singer}
+//           </Text>
+//         </Text>
+//       </View>
+//       <View style={styles.buttonContainer}>
+//         <Button title="Update Song State" onPress={allSongsClickHandler} />
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   containter: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   header: {
+//     backgroundColor: "lightblue",
+//     padding: 20,
+//   },
+//   boldText: {
+//     fontWeight: "bold",
+//   },
+//   allSongsListContainer: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     paddingTop: 40,
+//     paddingHorizontal: 20,
+//   },
+//   song: {
+//     marginTop: 24,
+//     padding: 30,
+//     backgroundColor: "pink",
+//     fontSize: 24,
+//   },
+//   body: {
+//     backgroundColor: "yellow",
+//     padding: 20,
+//   },
+//   buttonContainer: {
+//     marginTop: 20,
+//   },
+//   input: {
+//     borderWidth: 1,
+//     borderColor: "#777",
+//     padding: 8,
+//     margin: 10,
+//     width: 200,
+//   },
+// });
 
 // // KEEPING THIS IN A SAFE SITE
 
