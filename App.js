@@ -11,18 +11,7 @@ import SongCategory from "./app/components/songcategory";
 import AddSongCategoryItem from "./app/components/addsongcategoryitem";
 
 export default function App() {
-  // const [allSongs, setAllSongs] = useState([
-  //   { songName: "Timro Mann", id: "1" },
-  //   { songName: "Parkhaima", id: "2" },
-  //   { songName: "Purano Hudaina Maya", id: "3" },
-  //   { songName: "Sayau Juni", id: "4" },
-  //   { songName: "Timi Sanga Najar judhai", id: "5" },
-  //   { songName: "Tai Mori ko Maya", id: "6" },
-  //   { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
-  //   { songName: "Mayalu", id: "8" },
-  //   { songName: "Timrai Maya Lagxa", id: "9" },
-  //   { songName: "Maya Le Bolayo Malai", id: "10" },
-  // ]);
+
 
   const [songs, setSongs] = useState([
     { songCategory: "All Songs", key: "1" },
@@ -109,6 +98,19 @@ const styles = StyleSheet.create({
   //   marginTop: 24,
   // },
 });
+
+  // const [allSongs, setAllSongs] = useState([
+  //   { songName: "Timro Mann", id: "1" },
+  //   { songName: "Parkhaima", id: "2" },
+  //   { songName: "Purano Hudaina Maya", id: "3" },
+  //   { songName: "Sayau Juni", id: "4" },
+  //   { songName: "Timi Sanga Najar judhai", id: "5" },
+  //   { songName: "Tai Mori ko Maya", id: "6" },
+  //   { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
+  //   { songName: "Mayalu", id: "8" },
+  //   { songName: "Timrai Maya Lagxa", id: "9" },
+  //   { songName: "Maya Le Bolayo Malai", id: "10" },
+  // ]);
 
 //{
 /* <ScrollView>
