@@ -7,7 +7,8 @@ import {
   //TouchableOpacity,
 } from "react-native";
 import Header from "./app/components/header";
-import SongCategoryItem from "./app/components/songcategory";
+import SongCategory from "./app/components/songcategory";
+import AddSongCategoryItem from "./app/components/addsongcategoryitem";
 
 export default function App() {
   // const [allSongs, setAllSongs] = useState([
@@ -35,6 +36,15 @@ export default function App() {
   //   });
   // };
 
+  // const submitHandler = (songs) => {
+  //   setSongs((previousSongCategory) => {
+  //     return [
+  //       { songCategory: songCategory, key: Math.random().toString() },
+  //       ...previousSongCategory,
+  //     ];
+  //   });
+  // };
+
   // const pressHandler = (id) => {
   //   console.log(id);
   //   // to delete the clicked item
@@ -47,12 +57,14 @@ export default function App() {
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
+        {/* submitHandler={submitHandler} */}
+        <AddSongCategoryItem />
         <View style={styles.list}>
           <FlatList
             data={songs}
             renderItem={({ item }) => (
               //pressHandler={pressHandler}
-              <SongCategoryItem item={item} />
+              <SongCategory item={item} />
             )}
           />
         </View>

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function SongCategoryItem({ item, pressHandler }) {
+export default function SongCategory({ item, pressHandler }) {
   return (
     //onPress={() => pressHandler(item.key)}
     <TouchableOpacity>
