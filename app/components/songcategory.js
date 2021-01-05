@@ -5,7 +5,7 @@ export default function SongCategory({ item, pressHandler }) {
   return (
     //onPress={() => pressHandler(item.key)}
     <TouchableOpacity>
-      <Text style={styles.item}>{item.songCategory}</Text>
+      <Text style={styles.item}>{item.songName}</Text>
     </TouchableOpacity>
   );
 }

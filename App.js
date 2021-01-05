@@ -4,72 +4,50 @@ import {
   Text,
   View,
   FlatList,
-  //TouchableOpacity,
+  TouchableOpacity,
 } from "react-native";
 import Header from "./app/components/header";
 import SongCategory from "./app/components/songcategory";
 import AddSongCategoryItem from "./app/components/addsongcategoryitem";
 
 export default function App() {
-
-
   const [songs, setSongs] = useState([
-    { songCategory: "All Songs", key: "1" },
-    { songCategory: "Favorite Songs", key: "2" },
-    { songCategory: "Unliked Songs", key: "3" },
+    { songName: "Timro Mann", key: "1" },
+    { songName: "Parkhaima", key: "2" },
+    { songName: "Purano Hudaina Maya", key: "3" },
+    { songName: "Sayau Juni", key: "4" },
+    { songName: "Timi Sanga Najar judhai", key: "5" },
   ]);
 
-  // const pressHandler = (key) => {
-  //   setSongs((previousSongCategory) => {
-  //     return previousSongCategory.filter((song) => song.key != key);
-  //   });
-  // };
+  const pressHandler = (key) => {
+    setSongs((previousSongName) => {
+      return previousSongName.filter((song) => song.key != key);
+    });
+  };
 
-  // const submitHandler = (songs) => {
-  //   setSongs((previousSongCategory) => {
-  //     return [
-  //       { songCategory: songCategory, key: Math.random().toString() },
-  //       ...previousSongCategory,
-  //     ];
-  //   });
-  // };
-
-  // const pressHandler = (id) => {
-  //   console.log(id);
-  //   // to delete the clicked item
-  //   setAllSongs((previousSong) => {
-  //     return previousSong.filter((song) => song.id != id);
-  //   });
-  // };
+  const submitHandler = (songName) => {
+    setSongs((previousSongName) => {
+      return [
+        { songName: songName, key: Math.random().toString() },
+        ...previousSongName,
+      ];
+    });
+  };
 
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
-        {/* submitHandler={submitHandler} */}
-        <AddSongCategoryItem />
+        <AddSongCategoryItem submitHandler={submitHandler} />
         <View style={styles.list}>
           <FlatList
             data={songs}
             renderItem={({ item }) => (
-              //pressHandler={pressHandler}
-              <SongCategory item={item} />
+              <SongCategory item={item} pressHandler={pressHandler} />
             )}
           />
         </View>
       </View>
-      {/* <View style={styles.allSongsContainer}>
-        <FlatList
-          numColumns={1}
-          keyExtractor={(item) => item.id}
-          data={allSongs}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => pressHandler(item.id)}>
-              <Text style={styles.item}>{item.songName}</Text>
-            </TouchableOpacity>
-          )}
-        />
-          </View> */}
     </View>
   );
 }
@@ -85,32 +63,32 @@ const styles = StyleSheet.create({
   list: {
     marginTop: 20,
   },
-  // allSongsContainer: {
-  //   paddingTop: 40,
-  //   paddingHorizontal: 20,
-  // },
-  // item: {
-  //   marginTop: 24,
-  //   padding: 30,
-  //   backgroundColor: "pink",
-  //   fontSize: 24,
-  //   marginHorizontal: 10,
-  //   marginTop: 24,
-  // },
 });
+// allSongsContainer: {
+//   paddingTop: 40,
+//   paddingHorizontal: 20,
+// },
+// item: {
+//   marginTop: 24,
+//   padding: 30,
+//   backgroundColor: "pink",
+//   fontSize: 24,
+//   marginHorizontal: 10,
+//   marginTop: 24,
+// },
 
-  // const [allSongs, setAllSongs] = useState([
-  //   { songName: "Timro Mann", id: "1" },
-  //   { songName: "Parkhaima", id: "2" },
-  //   { songName: "Purano Hudaina Maya", id: "3" },
-  //   { songName: "Sayau Juni", id: "4" },
-  //   { songName: "Timi Sanga Najar judhai", id: "5" },
-  //   { songName: "Tai Mori ko Maya", id: "6" },
-  //   { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
-  //   { songName: "Mayalu", id: "8" },
-  //   { songName: "Timrai Maya Lagxa", id: "9" },
-  //   { songName: "Maya Le Bolayo Malai", id: "10" },
-  // ]);
+// const [allSongs, setAllSongs] = useState([
+//   { songName: "Timro Mann", id: "1" },
+//   { songName: "Parkhaima", id: "2" },
+//   { songName: "Purano Hudaina Maya", id: "3" },
+//   { songName: "Sayau Juni", id: "4" },
+//   { songName: "Timi Sanga Najar judhai", id: "5" },
+//   { songName: "Tai Mori ko Maya", id: "6" },
+//   { songName: "Mann Thiyena Jogi Banna Lai", id: "7" },
+//   { songName: "Mayalu", id: "8" },
+//   { songName: "Timrai Maya Lagxa", id: "9" },
+//   { songName: "Maya Le Bolayo Malai", id: "10" },
+// ]);
 
 //{
 /* <ScrollView>

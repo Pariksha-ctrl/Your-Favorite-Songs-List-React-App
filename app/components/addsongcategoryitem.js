@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 
-//export default function AddSongCategoryItem({submitHandler})
-export default function AddSongCategoryItem() {
+export default function AddSongCategoryItem({ submitHandler }) {
   const [songItem, setSongItem] = useState("");
 
   const changeHandler = (val) => {
@@ -13,12 +12,12 @@ export default function AddSongCategoryItem() {
     <View>
       <TextInput
         style={styles.inputSongItem}
-        placeholder="add song category item..."
+        placeholder="add new song..."
         onChangeText={changeHandler}
       />
       <Button
         onPress={() => submitHandler(songItem)}
-        title="add song item"
+        title="add new song"
         color="coral"
       />
     </View>
